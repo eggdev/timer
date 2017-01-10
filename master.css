@@ -110,6 +110,17 @@ button {
 
 /* MOBILE */
 @media only screen and (max-width: 600px) {
+  .splitList {
+    font-size: 1.5em;
+    height: 25vh;
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    text-align: center;
+    overflow-y: scroll;
+    border-bottom: 2px solid black;
+  }
+
   .splitList::-webkit-scrollbar {
       -webkit-appearance: none;
       width: 10px;
