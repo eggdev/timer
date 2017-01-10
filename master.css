@@ -35,7 +35,6 @@ body {
   border-top: 3px solid black;
   box-sizing: border-box;
   display: flex;
-  flex-flow: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
@@ -84,7 +83,6 @@ body {
   width: 100%;
   height: 50vh;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
 }

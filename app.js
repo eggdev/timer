@@ -1,5 +1,3 @@
-console.log("WHY THE FUCK DON'T YOU LISTEN!!!");
-
 Vue.component('sub-split',{
   props: ['split'],
   template: '<li class="split-time">{{ split.split }}</li>'
