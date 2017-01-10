@@ -4,6 +4,7 @@ html {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   width: 100vw;
+  background: darkgray;
 }
 body {
   padding: 0;
@@ -12,6 +13,7 @@ body {
   border-right: 2px solid black;
   width: 50vw;
   margin: 0 auto;
+  background: white;
 }
 #main {
   padding: 0;
@@ -19,7 +21,7 @@ body {
   width: 100%;
 }
 .clock {
-  height: 10vh;
+  height: 15vh;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -27,40 +29,42 @@ body {
   align-items: center;
   font-size: 3em;
   border-bottom: 3px solid black;
+  background: #414141;
+  color: white;
 }
 
 .split-box {
-  height: 50vh;
+  height: 45vh;
   width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-y: scroll;
+  background: #CCDFCB;
 }
 .splitTitles {
   height: 10vh;
-  border: 1px solid black;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .title {
   text-align: center;
+  height: 100%;
   width: 50%;
-  font-size: 1.5em;
+  line-height: 1;
+  font-size: 1.7em;
 }
 
 .splits {
-  border: 1px solid black;
   text-align: center;
-  height: 40vh;
+  height: 35vh;
   width: 100%;
   display: flex;
   flex-direction: row;
+  overflow-y: scroll;
 }
 
 .splitList {
@@ -107,19 +111,19 @@ button {
   height: 20vh;
   width: 100%;
   font-size: 2em;
-  background: white;
+  color: floralwhite;
 }
 
 .stop-clear-button {
   border-top: 2px solid black;
   box-sizing: border-box;
-  background: red;
+  background: #FF6A5C;
 }
 
 .start-split-button {
   border-top: 2px solid black;
   box-sizing: border-box;
-  background: green;
+  background: #056571;
 }
 
 /* MOBILE */
