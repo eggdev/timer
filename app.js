@@ -57,12 +57,12 @@ var vm = new Vue({
         self.cumulativeSplit = mins+":"+secs+"."+hunds;
         self.subtractedSplit = splitM+":"+splitS+"."+splitH;
 
-        self.cumSplitsArray.push({split: self.cumulativeSplit});
+        self.cumSplitsArray.unshift({split: self.cumulativeSplit});
 
         if(self.subSplitsArray.length === 0){
-          self.subSplitsArray.push({split: self.cumulativeSplit});
+          self.subSplitsArray.unshift({split: self.cumulativeSplit});
         }else {
-          self.subSplitsArray.push({split: self.subtractedSplit});
+          self.subSplitsArray.unshift({split: self.subtractedSplit});
         }
 
         // console.log(self.cumulativeSplit);
@@ -72,7 +72,7 @@ var vm = new Vue({
         self.splitHund = 00;
         self.splitSec = 00;
         self.splitMin = 00;
-        self.subtractSplit();  
+        self.subtractSplit();
       }
     },
     subtractSplit: function(){
@@ -100,8 +100,8 @@ var vm = new Vue({
         }
         self.clearClock();
       }else {
-        self.clockisRunning = false;
         self.getSplit();
+        self.clockisRunning = false;
         clearInterval(self.running);
         clearInterval(self.subtracting);
       }
