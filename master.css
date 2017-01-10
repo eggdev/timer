@@ -34,26 +34,39 @@ body {
   width: 100%;
   box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   overflow-y: scroll;
+}
+.splitTitles {
+  height: 10vh;
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  width: 50%;
+  font-size: 1.5em;
 }
 
 .splits {
+  border: 1px solid black;
   text-align: center;
-  height: 50vh;
-  width: 50%;
+  height: 40vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-}
-.splitTitle {
-  font-size: 1.5em;
+  flex-direction: row;
 }
 
 .splitList {
   font-size: 1.5em;
-  height: 30vh;
+  height: 40vh;
+  width: 50%;
   list-style-type: none;
   margin:0;
   padding: 0;

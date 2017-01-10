@@ -15,14 +15,14 @@
         <p>{{minutes}}:{{seconds}}:{{hundreths}}</p>
       </div>
       <div class='split-box'>
+        <div class='splitTitles'>
+          <h3 class='title'>CUMULATIVE</h3>
+          <h3 class='title'>SUBTRACTED</h3>
+        </div>
         <div class='splits'>
-          <h3 class='splitTitle'>CUMULATIVE</h3>
           <ul class='splitList'>
             <cum-split v-for="split in cumSplitsArray" v-bind:split="split"></cum-split>
           </ul>
-        </div>
-        <div class='splits'>
-          <h3 class='splitTitle'>SUBTRACTED</h3>
           <ul class='splitList'>
             <sub-split v-for="split in subSplitsArray" v-bind:split="split"></sub-split>
           </ul>
@@ -33,7 +33,6 @@
         <button class='start-split-button' v-on:click='startTimer'>{{startSplitText}}</button>
       </div>
     </div>
-
     <script src="./app.js" charset="utf-8"></script>
   </body>
 </html>
