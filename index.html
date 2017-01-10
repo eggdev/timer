@@ -9,6 +9,7 @@
   </head>
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js" charset="utf-8"></script>
+
     <div id='main'>
       <div class='clock'>
         <p>{{minutes}}:{{seconds}}:{{hundreths}}</p>
@@ -33,8 +34,8 @@
         <button class='stop-button' v-on:click='stopTimer'>{{buttontext}}</button>
         <button class='split-button' v-on:click='getSplit'>SPLIT</button>
       </div>
-
     </div>
+
     <script src="./app.js" charset="utf-8"></script>
   </body>
 </html>
