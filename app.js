@@ -22,25 +22,33 @@ var vm = new Vue({
     cumSplitsArray: [],
     subSplitsArray: [],
     clockisRunning: false,
-    buttontext: 'CLEAR',
+    stopcleartext: 'CLEAR',
+    startsplittext: 'START'
   },
   methods: {
     startTimer: function(){
       let self = this;
-      self.buttontext = 'STOP';
-      self.clockisRunning = true;
-      self.running = setInterval(function(){
-        self.time++;
-        self.hundreths+=01
-        if(self.hundreths === 99){
-          self.hundreths = 00;
-          self.seconds +=01;
-          if(self.seconds === 59){
-            self.seconds = 00;
-            self.minutes +=1;
+      if(self.clockisRunning){
+        self.startsplittext = 'SPLIT';
+        self.getSplit();
+      }else {
+        self.startsplittext = 'SPLIT';
+        self.stopcleartext = 'STOP';
+        self.clockisRunning = true;
+        self.running = setInterval(function(){
+          self.time++;
+          self.hundreths+=01
+          if(self.hundreths === 99){
+            self.hundreths = 00;
+            self.seconds +=01;
+            if(self.seconds === 59){
+              self.seconds = 00;
+              self.minutes +=1;
+            }
           }
-        }
-      }, 10)
+        }, 10)
+      }
+
     },
     getSplit: function(){
       let self = this;
@@ -90,7 +98,8 @@ var vm = new Vue({
     //Will change the button text to clear, and stop the running clock timer. If the clear button is pressed, all time values will be reset.
     stopTimer: function(){
       let self = this;
-      self.buttontext = 'CLEAR';
+      self.stopcleartext = 'CLEAR';
+      self.startsplittext = 'START';
       if(self.clockisRunning === false){
         while(self.subSplitsArray.length > 0){
           self.subSplitsArray.pop();

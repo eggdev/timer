@@ -27,12 +27,10 @@
             <sub-split v-for="split in subSplitsArray" v-bind:split="split"></sub-split>
           </ul>
         </div>
-        <p class='scrolltext'>SCROLL DOWN</p>
       </div>
       <div class='buttons'>
-        <button class='start-button' v-on:click='startTimer'>START</button>
-        <button class='stop-button' v-on:click='stopTimer'>{{buttontext}}</button>
-        <button class='split-button' v-on:click='getSplit'>SPLIT</button>
+        <button class='stop-clear-button' v-on:click='stopTimer'>{{stopcleartext}}</button>
+        <button class='start-split-button' v-on:click='startTimer'>{{startsplittext}}</button>
       </div>
     </div>
 
