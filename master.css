@@ -3,6 +3,7 @@ html, body {
   padding: 0;
   box-sizing: border-box;
   background: lightblue;
+  font-family: 'Roboto', sans-serif;
 }
 
 #main {
@@ -42,9 +43,18 @@ html, body {
 }
 
 .splitList {
+  font-size: 1.5em;
   height: 25vh;
   overflow-y: scroll;
+  text-align: center;
   list-style-type: none;
+  margin:0;
+  padding: 0;
+}
+
+.split-time {
+  margin: 0;
+  padding: 0;
 }
 
 .buttons {
@@ -57,6 +67,7 @@ html, body {
 }
 
 button {
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   border: none;
   outline:none;

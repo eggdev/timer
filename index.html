@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Timer</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="./master.css" media="screen" title="no title">
   </head>
   <body>
@@ -13,13 +14,13 @@
       </div>
       <div class='split-box'>
         <div class='splits'>
-          <h3 class='splitTitle'>Cumulative</h3>
+          <h3 class='splitTitle'>CUMULATIVE</h3>
           <ul class='splitList'>
             <cum-split v-for="split in cumSplitsArray" v-bind:split="split"></cum-split>
           </ul>
         </div>
         <div class='splits'>
-          <h3 class='splitTitle'>Subtracted</h3>
+          <h3 class='splitTitle'>SUBTRACTED</h3>
           <ul class='splitList'>
             <sub-split v-for="split in subSplitsArray" v-bind:split="split"></sub-split>
           </ul>
