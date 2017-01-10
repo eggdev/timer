@@ -46,28 +46,27 @@ var vm = new Vue({
     },
     getSplit: function(){
       let self = this;
+      //If the watch has been running, record the split
       if(self.clockisRunning){
-        let mins = self.minutes
+        let mins = self.minutes;
         let secs = (self.seconds).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
         let hunds = (self.hundreths).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
-        let splitM = self.splitMin
+        let splitM = self.splitMin;
         let splitS = (self.splitSec).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
         let splitH = (self.splitHund).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
 
+        //Strings to push into the arrays for their respective splits
         self.cumulativeSplit = mins+":"+secs+"."+hunds;
         self.subtractedSplit = splitM+":"+splitS+"."+splitH;
 
+        //Adds cumulative split to it's own array, and adds the subtracted split to a separate array. If there have been no splits recorded, the cumulative split will count as the subtracted split.
         self.cumSplitsArray.unshift({split: self.cumulativeSplit});
-
         if(self.subSplitsArray.length === 0){
           self.subSplitsArray.unshift({split: self.cumulativeSplit});
         }else {
           self.subSplitsArray.unshift({split: self.subtractedSplit});
         }
-
-        // console.log(self.cumulativeSplit);
-        // console.log(self.subtractedSplit);
-
+        //Will clear the running split clock and then reset values to 0 before calling it again. Sloppy and poor coding but worked in a crunch. Will fix this to be actual math and subtracted splitting from overall time.
         clearInterval(self.subtracting);
         self.splitHund = 00;
         self.splitSec = 00;
@@ -75,6 +74,7 @@ var vm = new Vue({
         self.subtractSplit();
       }
     },
+    //Starts a new clock that is able to get the time between split calls
     subtractSplit: function(){
       let self = this;
       self.subtracting = setInterval(function(){
@@ -89,23 +89,25 @@ var vm = new Vue({
         }
       }, 10)
     },
+    //Will change the button text to clear, and stop the running clock timer. If the clear button is pressed, all time values will be reset.
     stopTimer: function(){
       let self = this;
       self.buttontext = 'CLEAR';
       if(self.clockisRunning === false){
-        console.log(self.subSplitsArray);
         while(self.subSplitsArray.length > 0){
           self.subSplitsArray.pop();
           self.cumSplitsArray.pop();
         }
         self.clearClock();
       }else {
+        //Will add a subtracted and cumulative split to the arrays so that final time and final split are recorded and will clear the intervals on both functions
         self.getSplit();
         self.clockisRunning = false;
         clearInterval(self.running);
         clearInterval(self.subtracting);
       }
     },
+    //Resets all clock values back to 0.
     clearClock: function(){
       let self = this;
       self.minutes = 00;
