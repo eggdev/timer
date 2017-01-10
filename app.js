@@ -23,7 +23,7 @@ var vm = new Vue({
     subSplitsArray: [],
     clockisRunning: false,
     stopClearText: 'CLEAR',
-    startSplitText: 'START'
+    startSplitText: 'START',
   },
   methods: {
     startTimer: function(){
