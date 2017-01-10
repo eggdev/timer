@@ -18,15 +18,14 @@
           <ul class='splitList'>
             <cum-split v-for="split in cumSplitsArray" v-bind:split="split"></cum-split>
           </ul>
-          <p>SCROLL</p>
         </div>
         <div class='splits'>
           <h3 class='splitTitle'>SUBTRACTED</h3>
           <ul class='splitList'>
             <sub-split v-for="split in subSplitsArray" v-bind:split="split"></sub-split>
           </ul>
-          <p>SCROLL</p>
         </div>
+        <p class='scrolltext'>SCROLL DOWN</p>
       </div>
       <div class='buttons'>
         <button class='start-button' v-on:click='startTimer'>START</button>
