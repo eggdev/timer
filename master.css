@@ -4,7 +4,7 @@ html {
   box-sizing: border-box;
   background: lightblue;
   font-family: 'Roboto', sans-serif;
-  width 100vw;
+  width: 100vw;
 }
 body {
   padding: 0;
