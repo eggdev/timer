@@ -3,7 +3,6 @@ Vue.component('sub-split',{
   template: '<li class="split-time">{{ split.split }}</li>'
 })
 
-
 Vue.component('cum-split',{
   props: ['split'],
   template: '<li class="split-time">{{ split.split }}</li>'
