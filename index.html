@@ -12,17 +12,17 @@
 
     <div id='main'>
       <div class='clock'>
-        <p>{{minutes}}:{{seconds}}:{{hundreths}}</p>
+        <p>{{minutes}}:{{seconds}}.{{hundreths}}</p>
       </div>
       <div class='split-box'>
         <div class='splitTitles'>
-          <h3 class='title'>CUMULATIVE</h3>
-          <h3 class='title'>SUBTRACTED</h3>
+          <!-- <h3 class='title'>CUMULATIVE</h3> -->
+          <h3 class='title'>SUBTRACTED SPLITS</h3>
         </div>
         <div class='splits'>
-          <ul class='splitList'>
+          <!-- <ul class='splitList'>
             <cum-split v-for="split in cumSplitsArray" v-bind:split="split"></cum-split>
-          </ul>
+          </ul> -->
           <ul class='splitList'>
             <sub-split v-for="split in subSplitsArray" v-bind:split="split"></sub-split>
           </ul>

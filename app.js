@@ -11,14 +11,11 @@ Vue.component('cum-split',{
 var vm = new Vue({
   el: '#main',
   data: {
-    minutes: 00,
-    seconds: 00,
-    hundreths: 00,
-    splitMin: 00,
-    splitSec: 00,
-    splitHund: 00,
-    cumulativeSplit: '',
-    subtractedSplit: '',
+    minutes: 0,
+    seconds: 0,
+    hundreths: 0,
+    splitMin: 0,
+    splitSec: 0.00,
     cumSplitsArray: [],
     subSplitsArray: [],
     clockisRunning: false,
@@ -36,34 +33,37 @@ var vm = new Vue({
         self.stopClearText = 'STOP';
         self.clockisRunning = true;
         self.running = setInterval(function(){
-          self.time++;
-          self.hundreths+=01
-          if(self.hundreths === 99){
+          self.hundreths+=1;
+          if(self.hundreths >= 100){
             self.hundreths = 00;
-            self.seconds +=01;
-            if(self.seconds === 59){
-              self.seconds = 00;
-              self.minutes +=1;
-            }
+            self.seconds+=1;
+          }else if(self.seconds >= 60){
+            self.seconds=0;
+            self.minutes+=1;
           }
         }, 10)
       }
-
     },
     getSplit: function(){
       var self = this;
       //If the watch has been running, record the split
       if(self.clockisRunning){
         var mins = self.minutes;
-        var secs = (self.seconds).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:true});
-        var hunds = (self.hundreths).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:true});
+        var secs = self.seconds;
+        var hundreths = self.hundreths;
+        if(secs < 10){
+          secs = "0"+secs;
+        }
         var splitM = self.splitMin;
-        var splitS = (self.splitSec).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:true});
-        var splitH = (self.splitHund).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:true});
+        var splitS = (self.splitSec).toFixed(2);
+        if(splitS < 10){
+          splitS = "0"+splitS;
+        }
+
 
         //Strings to push into the arrays for their respective splits
-        self.cumulativeSplit = mins+":"+secs+"."+hunds;
-        self.subtractedSplit = splitM+":"+splitS+"."+splitH;
+        self.cumulativeSplit = mins+":"+secs+"."+hundreths;
+        self.subtractedSplit = splitM+":"+splitS;
 
         //Adds cumulative split to it's own array, and adds the subtracted split to a separate array. If there have been no splits recorded, the cumulative split will count as the subtracted split.
         self.cumSplitsArray.unshift({split: self.cumulativeSplit});
@@ -74,7 +74,7 @@ var vm = new Vue({
         }
         //Will clear the running split clock and then reset values to 0 before calling it again. Sloppy and poor coding but worked in a crunch. Will fix this to be actual math and subtracted splitting from overall time.
         clearInterval(self.subtracting);
-        self.splitHund = 00;
+        self.splitHund = 00
         self.splitSec = 00;
         self.splitMin = 00;
         self.subtractSplit();
@@ -84,14 +84,10 @@ var vm = new Vue({
     subtractSplit: function(){
       var self = this;
       self.subtracting = setInterval(function(){
-        self.splitHund++
-        if(self.splitHund === 99){
-          self.splitHund = 00;
-          self.splitSec +=1;
-          if(self.splitSec === 59){
-            self.splitSec = 00;
-            self.splitMin +=1;
-          }
+        self.splitSec+=0.01
+        if(self.splitSec === 59.99){
+          self.splitSec = 0.01;
+          self.splitMin+=1;
         }
       }, 10)
     },
@@ -119,10 +115,8 @@ var vm = new Vue({
       var self = this;
       self.minutes = 00;
       self.seconds = 00;
-      self.hundreths = 00;
       self.splitMin = 00;
       self.splitSec = 00;
-      self.splitHund = 00;
     }
   }
 });
