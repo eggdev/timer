@@ -1,3 +1,8 @@
+Vue.component('display-time', {
+  props: ['time'],
+  template: '{{minutes}}:{{seconds}}.{{hundreths}}'
+})
+
 Vue.component('sub-split',{
   props: ['split'],
   template: '<li class="split-time">{{ split.split }}</li>'
@@ -84,9 +89,9 @@ var vm = new Vue({
     subtractSplit: function(){
       var self = this;
       self.subtracting = setInterval(function(){
-        self.splitSec+=0.01
-        if(self.splitSec === 59.99){
-          self.splitSec = 0.01;
+        self.splitSec+= 0.01;
+        if(self.splitSec >= 60.00){
+          self.splitSec = 0.00;
           self.splitMin+=1;
         }
       }, 10)
