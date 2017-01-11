@@ -182,7 +182,7 @@ button {
   }
 }
 
-/* MOBILE */
+/* BIG MOBILE Iphone 6, 6s, Galaxy s7 */
 @media only screen and (max-width: 600px) {
   html {
     margin: 0;
@@ -208,4 +208,12 @@ button {
   .title {
     font-size: 1.7em;
   }
+}
+
+/* SMALL MOBILE iphone 4, 5 and equivalant */
+@media only screen and (max-width: 400px) {
+  .title {
+    font-size: 1.5em;
+  }
+
 }

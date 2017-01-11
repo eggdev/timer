@@ -27,7 +27,7 @@ var vm = new Vue({
   },
   methods: {
     startTimer: function(){
-      let self = this;
+      var self = this;
       if(self.clockisRunning){
         self.startSplitText = 'SPLIT';
         self.getSplit();
@@ -51,7 +51,7 @@ var vm = new Vue({
 
     },
     getSplit: function(){
-      let self = this;
+      var self = this;
       //If the watch has been running, record the split
       if(self.clockisRunning){
         let mins = self.minutes;
@@ -82,7 +82,7 @@ var vm = new Vue({
     },
     //Starts a new clock that is able to get the time between split calls
     subtractSplit: function(){
-      let self = this;
+      var self = this;
       self.subtracting = setInterval(function(){
         self.splitHund++
         if(self.splitHund === 99){
@@ -97,7 +97,7 @@ var vm = new Vue({
     },
     //Will change the button text to clear, and stop the running clock timer. If the clear button is pressed, all time values will be reset.
     stopTimer: function(){
-      let self = this;
+      var self = this;
       self.stopClearText = 'CLEAR';
       self.startSplitText = 'START';
       if(self.clockisRunning === false){
@@ -116,7 +116,7 @@ var vm = new Vue({
     },
     //Resets all clock values back to 0.
     clearClock: function(){
-      let self = this;
+      var self = this;
       self.minutes = 00;
       self.seconds = 00;
       self.hundreths = 00;
