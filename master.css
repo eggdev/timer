@@ -211,9 +211,8 @@ button {
 }
 
 /* SMALL MOBILE iphone 4, 5 and equivalant */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 350px) {
   .title {
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
-
 }

@@ -55,11 +55,11 @@ var vm = new Vue({
       //If the watch has been running, record the split
       if(self.clockisRunning){
         var mins = self.minutes;
-        var secs = (self.seconds).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
-        var hunds = (self.hundreths).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+        var secs = (self.seconds).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:true});
+        var hunds = (self.hundreths).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:true});
         var splitM = self.splitMin;
-        var splitS = (self.splitSec).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
-        var splitH = (self.splitHund).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+        var splitS = (self.splitSec).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:true});
+        var splitH = (self.splitHund).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:true});
 
         //Strings to push into the arrays for their respective splits
         self.cumulativeSplit = mins+":"+secs+"."+hunds;
