@@ -34,6 +34,7 @@ var vm = new Vue({
         self.startSplitText = 'SPLIT';
         self.getSplit();
       }else {
+        self.subtractSplit();
         self.startSplitText = 'SPLIT';
         self.stopClearText = 'STOP';
         self.clockisRunning = true;
@@ -53,30 +54,14 @@ var vm = new Vue({
       var self = this;
       //If the watch has been running, record the split
       if(self.clockisRunning){
-        var mins = self.minutes;
-        var secs = self.seconds;
-        var hundreths = self.hundreths;
-        if(secs < 10){
-          secs = "0"+secs;
-        }
         var splitM = self.splitMin;
         var splitS = (self.splitSec).toFixed(2);
         if(splitS < 10){
           splitS = "0"+splitS;
         }
-
-
-        //Strings to push into the arrays for their respective splits
-        self.cumulativeSplit = mins+":"+secs+"."+hundreths;
+        //Strings to push into the arrays for the subtraced splits
         self.subtractedSplit = splitM+":"+splitS;
-
-        //Adds cumulative split to it's own array, and adds the subtracted split to a separate array. If there have been no splits recorded, the cumulative split will count as the subtracted split.
-        self.cumSplitsArray.unshift({split: self.cumulativeSplit});
-        if(self.subSplitsArray.length === 0){
-          self.subSplitsArray.unshift({split: self.cumulativeSplit});
-        }else {
-          self.subSplitsArray.unshift({split: self.subtractedSplit});
-        }
+        self.subSplitsArray.unshift({split: self.subtractedSplit});
         //Will clear the running split clock and then reset values to 0 before calling it again. Sloppy and poor coding but worked in a crunch. Will fix this to be actual math and subtracted splitting from overall time.
         clearInterval(self.subtracting);
         self.splitHund = 00
