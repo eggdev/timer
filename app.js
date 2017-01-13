@@ -120,6 +120,7 @@ var vm = new Vue({
       var self = this;
       self.minutes = 00;
       self.seconds = 00;
+      self.hundreths = 00;
       self.splitMin = 00;
       self.splitSec = 00;
     }
