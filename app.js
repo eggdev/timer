@@ -34,10 +34,10 @@ var vm = new Vue({
         self.startSplitText = 'SPLIT';
         self.getSplit();
       }else {
+        self.clockisRunning = true;
         self.subtractSplit();
         self.startSplitText = 'SPLIT';
         self.stopClearText = 'STOP';
-        self.clockisRunning = true;
         self.running = setInterval(function(){
           self.hundreths+=1;
           if(self.hundreths >= 100){
@@ -64,7 +64,6 @@ var vm = new Vue({
         self.subSplitsArray.unshift({split: self.subtractedSplit});
         //Will clear the running split clock and then reset values to 0 before calling it again. Sloppy and poor coding but worked in a crunch. Will fix this to be actual math and subtracted splitting from overall time.
         clearInterval(self.subtracting);
-        self.splitHund = 00
         self.splitSec = 00;
         self.splitMin = 00;
         self.subtractSplit();
